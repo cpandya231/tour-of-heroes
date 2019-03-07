@@ -1,14 +1,16 @@
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { HeroDetailGuard } from './hero-detail/hero-detail.guard';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroesComponent } from './heroes/heroes.component';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 const routes: Routes = [
-  {path:"",redirectTo:"/dashboard",pathMatch:"full"},
-  {path:"dashboard",component:DashboardComponent},
-  {path:"heroes",component:HeroesComponent},
-  {path:"detail/:id",component:HeroDetailComponent}
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'contactus', component: ContactFormComponent}
+
 ];
 
 @NgModule({

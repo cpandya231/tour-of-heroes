@@ -5,34 +5,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorsService } from './authors.service';
-import { HeroesComponent } from './heroes/heroes.component';
-import { FormsModule } from '@angular/forms';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { MessagesComponent } from './messages/messages.component'; 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
-
+import { HeroesModule } from './heroes/heroes.module';
+import { MessagesComponent } from './messages/messages.component';
+import { SharedModule } from './shared/shared.module';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthorsComponent,
-    HeroesComponent,
-    HeroDetailComponent,
+    DashboardComponent,
     MessagesComponent,
-    DashboardComponent
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    HeroesModule,
+    SharedModule
   ],
   providers: [
     AuthorsService
