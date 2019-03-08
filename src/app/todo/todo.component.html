@@ -1,0 +1,7 @@
+<ul >
+  <li  *ngFor="let todo of TODOs">
+    <button @fade  mat-raised-button [value]="todo.id">
+      {{ todo.name }}
+    </button>
+  </li>
+</ul>

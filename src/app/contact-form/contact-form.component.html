@@ -1,12 +1,38 @@
 <form>
-  <div class="form-group">
-    <label for="firstName">FirstName</label>
-    <input id="firstName" required ngModel name="firstName" #firstName="ngModel" (change)="log(firstName)" type="text" class="form-control">
-    <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">FirstName is not valid</div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <input
+        id="firstName"
+        ngModel
+        name="firstName"
+        #firstName="ngModel"
+        (change)="log(firstName)"
+        required
+        minlength="3"
+        maxlength="10"
+        matInput
+        placeholder="First Name"
+      />
+      <mat-error *ngIf="firstName.touched && !firstName.valid">
+          <mat-error *ngIf="firstName.errors.required"
+            >First name is required</mat-error
+          >
+          <mat-error *ngIf="firstName.errors.minlength">
+            Length of first name should be more than
+            {{ firstName.errors.minlength.requiredLength }}
+          </mat-error>
+          <mat-error *ngIf="firstName.errors.maxlength">
+            Length of first name should be less than
+            {{ firstName.errors.maxlength.requiredLength }}
+          </mat-error>
+        </mat-error>
+    </mat-form-field>
+
   </div>
-  <div class="form-group">
-    <label for="comment">Comment</label>
-    <textarea id="comment" ngModel name="comment" type="text" class="form-control"></textarea>
+
+  <div>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Leave a comment"></textarea>
+    </mat-form-field>
   </div>
-  <button class="btn btn-primary">Submit</button>
 </form>
