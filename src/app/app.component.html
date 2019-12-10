@@ -1,12 +1,25 @@
 <h1>{{title}}</h1>
 
+<div id="vmenu" *ngIf="closeMenu">
+    
 <nav>
-  <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/heroes">Heroes</a>
-    <a routerLink="/contactus">Contact Us</a>
-    <a routerLink="/todo">TODO</a>
+  <ul>
+    <li><a routerLink="/dashboard">Dashboard</a></li>
+    
+    <li><a routerLink="/heroes">Heroes</a></li>
+    <li><a routerLink="/contactus">Contact Us</a></li>
+    <li><a routerLink="/todo">TODO</a></li>
+  </ul>
+ 
   </nav>
+</div>
 
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<div id="closeButton">
+  <button (click)="toggle()">X</button>      
+</div>
+<div id="routlet"><router-outlet></router-outlet>
+
+  <app-messages></app-messages>
+</div>
+
 

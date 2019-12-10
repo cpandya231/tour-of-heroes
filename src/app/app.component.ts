@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
+  closeMenu:boolean=true;
+  toggle(){
+    this.closeMenu=!this.closeMenu;
+  }
 }
